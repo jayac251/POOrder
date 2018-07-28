@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/report" xmlns:tns="http://www.example.org/report" elementFormDefault="qualified">
+
+    <element name="MessageReport" type="tns:MessageReportType"></element>
+    
+    <complexType name="MessageReportType">
+    	<sequence>
+    		<element name="MessageTrackingId" type="string"></element>
+    		<element name="DBTimestamp" type="string"></element>
+    		<element name="Hostname" type="string"></element>
+    		<element name="State" type="string"></element>
+    		<element name="Node" type="string"></element>
+    		<element name="FlowName" type="string"></element>
+    		<element name="ChannelName" type="string"></element>
+    		<element name="InboundServiceName" type="string"></element>
+    		<element name="InboundServiceURI" type="string"></element>
+    		<element name="InboundOperation" type="string"></element>
+    		<element name="OutboundServiceName" type="string"></element>
+    		<element name="OutboundServiceURI" type="string"></element>
+    		<element name="OutboundOperation" type="string"></element>
+    		<element name="MsgLabels" type="string"></element>
+    		<element name="ErrorCode" type="string"></element>
+    		<element name="ErrorReason" type="string"></element>
+    		<element name="ErrorDetails" type="string"></element>
+    		<element name="ErrorReason" type="string"></element>
+    		<element name="ErrorReason" type="string"></element>
+    		<element name="DataValue" type="string"></element>
+    	</sequence>
+    </complexType>
+</schema>
