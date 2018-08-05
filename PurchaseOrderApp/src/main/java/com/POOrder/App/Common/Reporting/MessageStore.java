@@ -4,13 +4,18 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
-@Entity(name="Message_Store")
+@Entity
+@Table(name="Message_Store",catalog="orderdbo")
 public class MessageStore {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String msg_guid;	
 	@Column
 	private String db_timestamp;
@@ -49,8 +54,8 @@ public class MessageStore {
 	
 	
 
-	@OneToOne(mappedBy="message_store")
-	private MessageStoreData message_store_data;
+//	@OneToOne(mappedBy="message_store")
+	//private MessageStoreData message_store_data;
 	
 	 /**
 	  * Default Constructor
@@ -105,7 +110,7 @@ public class MessageStore {
 		this.error_code = error_code;
 		this.error_reason = error_reason;
 		this.error_details = error_details;
-		this.message_store_data = message_store_data;
+		//this.message_store_data = message_store_data;
 	}
 
 	/**
@@ -378,12 +383,12 @@ public class MessageStore {
 		this.error_details = error_details;
 	}
 	
-	public MessageStoreData getMessage_store_data() {
+	/*public MessageStoreData getMessage_store_data() {
 		return message_store_data;
 	}
 
 	public void setMessage_store_data(MessageStoreData message_store_data) {
 		this.message_store_data = message_store_data;
-	}
+	}*/
 
 }

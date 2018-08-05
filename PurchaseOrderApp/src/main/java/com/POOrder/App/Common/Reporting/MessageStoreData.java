@@ -2,14 +2,20 @@ package com.POOrder.App.Common.Reporting;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
-@Entity(name="Message_Store_Data")
+@Entity
+@Table(name="Message_Store_Data",catalog="orderdbo")
 public class MessageStoreData {
 	@Id
-	private String Msg_guid;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private String msg_guid;
 	@Column
 	 private String data_type;
 	@Column
@@ -18,7 +24,7 @@ public class MessageStoreData {
 	 private String data_value;
 	
 	@OneToOne
-	@PrimaryKeyJoinColumn
+	@JoinColumn(name="msg_guid", referencedColumnName="msg_guid")
 	private MessageStore message_store;
 	 
 	 /**
@@ -36,7 +42,7 @@ public class MessageStoreData {
 	 */
 	public MessageStoreData(String msg_guid, String data_type, String encoding, String data_value) {
 		super();
-		Msg_guid = msg_guid;
+		msg_guid = msg_guid;
 		this.data_type = data_type;
 		this.encoding = encoding;
 		this.data_value = data_value;
@@ -45,13 +51,13 @@ public class MessageStoreData {
 	 * @return the msg_guid
 	 */
 	public String getMsg_guid() {
-		return Msg_guid;
+		return msg_guid;
 	}
 	/**
 	 * @param msg_guid the msg_guid to set
 	 */
 	public void setMsg_guid(String msg_guid) {
-		Msg_guid = msg_guid;
+		msg_guid = msg_guid;
 	}
 	/**
 	 * @return the data_type
